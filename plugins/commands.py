@@ -2,6 +2,7 @@ import os
 import random
 import string
 import asyncio
+import time
 from time import time as time_now
 import datetime
 from Script import script
@@ -497,9 +498,9 @@ async def img_2_link(bot, message):
 
 @Client.on_message(filters.command('ping'))
 async def ping(client, message):
-    start_time = time_now.monotonic()
+    start_time = time.monotonic()  # Correct usage of time.monotonic()
     msg = await message.reply("👀")
-    end_time = time_now.monotonic()
+    end_time = time.monotonic()  # Correct usage of time.monotonic()
     await msg.edit(f'{round((end_time - start_time) * 1000)} ms')
     
 
